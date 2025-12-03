@@ -129,6 +129,11 @@ public class TelaRelatorios extends javax.swing.JFrame {
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createTitledBorder(null, "Dados do relatório", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.BELOW_TOP, new java.awt.Font("Arial Black", 3, 14), new java.awt.Color(0, 0, 0)))); // NOI18N
 
         jComboBoxRelatorio.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1 - Despesas realizadas em um determinado veículo;", "2 - Somatório geral de todos as despesas da frota em um determinado mês;", "3 - Total de gastos da frota com combustível em um determinado mês;", "4 - Somatório do IPVA de um determinado ano de toda a frota;", "5 - Listar todos os veículos inativos na frota;", "6 - Relatório das multas pagas por veículo em um determinado ano." }));
+        jComboBoxRelatorio.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jComboBoxRelatorioItemStateChanged(evt);
+            }
+        });
         jComboBoxRelatorio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBoxRelatorioActionPerformed(evt);
@@ -294,6 +299,54 @@ public class TelaRelatorios extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Erro ao carregar anos: " + e.getMessage());
         }
     }
+    
+    private void mudarComboboxQuandoRelatorioSelecionado(){
+       int escolhido = jComboBoxRelatorio.getSelectedIndex();
+
+        jComboBoxVeiculo.setEnabled(true);
+        jComboBoxAno.setEnabled(true);
+        jComboBoxMes.setEnabled(true);
+
+        switch (escolhido) {
+            case 0:
+                jComboBoxVeiculo.setEnabled(true);
+                jComboBoxAno.setEnabled(false);
+                jComboBoxMes.setEnabled(false);
+                break;
+                
+            case 1:
+                jComboBoxVeiculo.setEnabled(false);
+                jComboBoxAno.setEnabled(true);
+                jComboBoxMes.setEnabled(true);
+                break;
+                
+            case 2: 
+                jComboBoxVeiculo.setEnabled(false);
+                jComboBoxAno.setEnabled(true);
+                jComboBoxMes.setEnabled(true);
+                break;
+                
+            case 3: 
+                jComboBoxVeiculo.setEnabled(false);
+                jComboBoxAno.setEnabled(true);
+                jComboBoxMes.setEnabled(false);
+                break;
+                
+            case 4: 
+                jComboBoxVeiculo.setEnabled(false);
+                jComboBoxAno.setEnabled(false);
+                jComboBoxMes.setEnabled(false);
+                break;
+                
+            case 5: 
+                jComboBoxVeiculo.setEnabled(true);
+                jComboBoxAno.setEnabled(true);
+                jComboBoxMes.setEnabled(false);
+                break;
+                
+
+        }
+    }
     private void jButtonVoltarTelaInicialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVoltarTelaInicialActionPerformed
         // TODO add your handling code here:
 
@@ -304,17 +357,44 @@ public class TelaRelatorios extends javax.swing.JFrame {
 
     private void jComboBoxRelatorioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxRelatorioActionPerformed
         // TODO add your handling code here:
+       mudarComboboxQuandoRelatorioSelecionado();
     }//GEN-LAST:event_jComboBoxRelatorioActionPerformed
 
     private void jButtonGerarPDFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGerarPDFActionPerformed
         // TODO add your handling code here:
-        //gerarRelatorioDespesasPorVeiculo();
-        //gerarRelatorioSomatorioGeralMes();
-        //gerarRelatorioVeiculosInativos();
-//        gerarRelatorioCombustivelMes();
-        gerarRelatorioIPVAAnual();
-
+        
+        int escolhido = jComboBoxRelatorio.getSelectedIndex();
+        
+        switch(escolhido){
+            case 0:
+               gerarRelatorioDespesasPorVeiculo();
+               break;
+            case 1:
+                gerarRelatorioSomatorioGeralMes();
+                break;
+            case 2: 
+                gerarRelatorioCombustivelMes();
+                break;
+            case 3: 
+                gerarRelatorioIPVAAnual();
+                break;
+            case 4:
+                gerarRelatorioVeiculosInativos();
+                break;
+            case 5: 
+                gerarRelatorioMultasPorVeiculoAno();
+                break;
+                //funcioando 
+                //funciona porra
+                
+        }
+        
     }//GEN-LAST:event_jButtonGerarPDFActionPerformed
+
+    private void jComboBoxRelatorioItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBoxRelatorioItemStateChanged
+        // TODO add your handling code here:
+
+    }//GEN-LAST:event_jComboBoxRelatorioItemStateChanged
 
     /**
      * @param args the command line arguments
@@ -640,28 +720,28 @@ public class TelaRelatorios extends javax.swing.JFrame {
                 String data = mov.getData();
                 String[] partesData = data.split("/");
                 int anoMov = Integer.parseInt(partesData[2].trim());
-                
-                if(mov.getIdDespesa() == idIpva && anoMov == anoEscolhido){
-                    tabela.addCell(mov.getIdVeiculo()+ "");
-                    tabela.addCell(mov.getIdDespesa()+ "");
-                    tabela.addCell(anoMov+ "");
+
+                if (mov.getIdDespesa() == idIpva && anoMov == anoEscolhido) {
+                    tabela.addCell(mov.getIdVeiculo() + "");
+                    tabela.addCell(mov.getIdDespesa() + "");
+                    tabela.addCell(anoMov + "");
                     tabela.addCell(mov.getValorDespesas() + "");
                     total += mov.getValorDespesas();
-                    contador ++;
+                    contador++;
                 }
-            } 
-            
+            }
+
             if (contador == 0) {
                 document.add(new Paragraph("Nenhum gasto com IPVA este ano."));
-            }else {
+            } else {
                 document.add(tabela);
                 document.add(new Paragraph(" "));
                 document.add(new Paragraph("Gasto total da frota com IPVA: R$ " + total));
             }
-            
+
             document.close();
             Desktop.getDesktop().open(new File("relatorio_IPVA_anual.pdf"));
-            
+
             JOptionPane.showMessageDialog(this,
                     "Relatório de gasto total com IPVA gerado com sucesso!");
 
@@ -726,6 +806,7 @@ public class TelaRelatorios extends javax.swing.JFrame {
     }
 
     private void gerarRelatorioMultasPorVeiculoAno() {
+
     }
 
 }
