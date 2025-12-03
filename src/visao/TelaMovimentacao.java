@@ -482,7 +482,7 @@ public class TelaMovimentacao extends javax.swing.JFrame {
             double valor = Double.parseDouble(jTextFieldValorDespesa.getText());
             String data = jFormattedTextField1.getText();
 
-            Movimentacao objMovimentacao = new Movimentacao(idMovimentacao, idDespesa, idVeiculo, placa, descricao, valor, data);
+            Movimentacao objMovimentacao = new Movimentacao(idMovimentacao, idVeiculo, idDespesa, placa, descricao, valor, data);
 
             controle.salvar(objMovimentacao);
 
