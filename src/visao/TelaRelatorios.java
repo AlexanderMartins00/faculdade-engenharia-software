@@ -599,7 +599,7 @@ public class TelaRelatorios extends javax.swing.JFrame {
             Document document = new Document();
             PdfWriter.getInstance(document, new FileOutputStream("relatorio_veiculos_inativos.pdf"));
             document.open();
-
+//2
             document.add(new Paragraph("GYN LOG - Relatório de Veículos Inativos"));
             document.add(new Paragraph(" "));
             document.add(new Paragraph("Lista de veículos com status INATIVO:"));
