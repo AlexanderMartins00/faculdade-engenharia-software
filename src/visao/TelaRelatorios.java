@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package visao;
+//deu certo
 
 import controle.ControleVeiculo;
 import java.util.ArrayList;
