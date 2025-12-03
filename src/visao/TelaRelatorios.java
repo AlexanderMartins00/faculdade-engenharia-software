@@ -2,7 +2,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-
 package visao;
 //deu certo
 // deu certo 2
@@ -513,6 +512,85 @@ public class TelaRelatorios extends javax.swing.JFrame {
 
     }
 
+//    private void gerarRelatorioCombustivelMes() {
+//        try {
+//            String mes = (String) jComboBoxMes.getSelectedItem();
+//            String[] partesMes = mes.split(" ");
+//            int mesEscolhido = Integer.parseInt(partesMes[0]);
+//
+//            String ano = (String) jComboBoxAno.getSelectedItem();
+//            int anoEscolhido = Integer.parseInt(ano);
+//
+//            ControleDespesas controle = new ControleDespesas();
+//            ArrayList<Despesas> listaDespesas = controle.listaDeTipoDasDespesas();
+//
+//            int IDcombustivel = 0;
+//
+//            for (Despesas d : listaDespesas) {
+//                String descricao = d.getDescricao().trim().toLowerCase();
+//                if (descricao.equals("combustivel") || descricao.equals("combustível")) {
+//                    IDcombustivel = d.getIdTipoDeDespesa();
+//                }
+//            }
+//
+//            
+//
+//            ArrayList<Movimentacao> listaMov = controleMovimentacao.listar();
+//
+//            Document document = new Document();
+//            PdfWriter.getInstance(document, new FileOutputStream("relatorio_combustivel_mes.pdf"));
+//            document.open();
+//
+//            document.add(new Paragraph("GYN LOG - Relatório de Combustível da Frota"));
+//            document.add(new Paragraph("Mês: " + mes + " | Ano: " + anoEscolhido));
+//            document.add(new Paragraph(" "));
+//            document.add(new Paragraph("Gastos com combustível neste mês:"));
+//            document.add(new Paragraph(" "));
+//
+//            PdfPTable tabela = new PdfPTable(4);
+//            tabela.addCell("ID Veículo");
+//            tabela.addCell("Data");
+//            tabela.addCell("Descrição");
+//            tabela.addCell("Valor (R$)");
+//
+//            double total = 0.0;
+//            int contador = 0;
+//
+//            for (Movimentacao mov : listaMov) {
+//               
+//                String data = mov.getData();
+//                String[] partesData = data.split("/");
+//                int mesMov = Integer.parseInt(partesData[1].trim());
+//                int anoMov = Integer.parseInt(partesData[2].trim());
+//                if(mov.getIdDespesa()==IDcombustivel & mesMov ==mesEscolhido & anoMov== anoEscolhido )
+//
+//                tabela.addCell(String.valueOf(mov.getIdVeiculo()));
+//                tabela.addCell(mov.getData());
+//                tabela.addCell(mov.getDescricaoDespesa());
+//                tabela.addCell(String.valueOf(mov.getValorDespesas()));
+//                total += mov.getValorDespesas();
+//                contador++;
+//            }
+//
+//            if (contador == 0) {
+//                document.add(new Paragraph("Nenhum gasto com combustível neste mês/ano."));
+//            } else {
+//                document.add(tabela);
+//                document.add(new Paragraph(" "));
+//                document.add(new Paragraph("TOTAL gasto com combustível: R$ " + total));
+//            }
+//
+//            document.close();
+//            Desktop.getDesktop().open(new File("relatorio_combustivel_mes.pdf"));
+//
+//            JOptionPane.showMessageDialog(this,
+//                    "Relatório de combustível gerado com sucesso!");
+//
+//        } catch (Exception erro) {
+//            JOptionPane.showMessageDialog(this, "Erro aoo gera o relatorio " + erro.getMessage());
+//        }
+//
+//    }
     private void gerarRelatorioCombustivelMes() {
         try {
             String mes = (String) jComboBoxMes.getSelectedItem();
@@ -533,8 +611,6 @@ public class TelaRelatorios extends javax.swing.JFrame {
                     IDcombustivel = d.getIdTipoDeDespesa();
                 }
             }
-
-            
 
             ArrayList<Movimentacao> listaMov = controleMovimentacao.listar();
 
@@ -558,19 +634,23 @@ public class TelaRelatorios extends javax.swing.JFrame {
             int contador = 0;
 
             for (Movimentacao mov : listaMov) {
-               
+
                 String data = mov.getData();
                 String[] partesData = data.split("/");
                 int mesMov = Integer.parseInt(partesData[1].trim());
                 int anoMov = Integer.parseInt(partesData[2].trim());
-                if(mov.getIdDespesa()==IDcombustivel & mesMov ==mesEscolhido & anoMov== anoEscolhido )
 
-                tabela.addCell(String.valueOf(mov.getIdVeiculo()));
-                tabela.addCell(mov.getData());
-                tabela.addCell(mov.getDescricaoDespesa());
-                tabela.addCell(String.valueOf(mov.getValorDespesas()));
-                total += mov.getValorDespesas();
-                contador++;
+                if (mov.getIdDespesa() == IDcombustivel
+                        && mesMov == mesEscolhido
+                        && anoMov == anoEscolhido) {
+
+                    tabela.addCell(String.valueOf(mov.getIdVeiculo()));
+                    tabela.addCell(mov.getData());
+                    tabela.addCell(mov.getDescricaoDespesa());
+                    tabela.addCell(String.valueOf(mov.getValorDespesas()));
+                    total += mov.getValorDespesas();
+                    contador++;
+                }
             }
 
             if (contador == 0) {
@@ -597,39 +677,36 @@ public class TelaRelatorios extends javax.swing.JFrame {
         try {
             String ano = jComboBoxAno.getSelectedItem().toString();
             int anoEscolhido = Integer.parseInt(ano);
-            
-            
-            
+
             ControleDespesas controle = new ControleDespesas();
             ArrayList<Despesas> lista = controle.listaDeTipoDasDespesas();
-            
+
             int idIpva = 0;
-            
-            for(Despesas d : lista){
+
+            for (Despesas d : lista) {
                 String descricao = d.getDescricao().trim().toUpperCase();
-                if(descricao.equals("IPVA")){
+                if (descricao.equals("IPVA")) {
                     idIpva = d.getIdTipoDeDespesa();
                 }
-                
-                
+
             }
-            
+
             ArrayList<Movimentacao> listaMov = controleMovimentacao.listar();
-            
+
             Document document = new Document();
-            PdfWriter.getInstance(document,new FileOutputStream("relatorio_IPVA_anual.pdf"));
-            
+            PdfWriter.getInstance(document, new FileOutputStream("relatorio_IPVA_anual.pdf"));
+
             document.add(new Paragraph("GYN LOG - Relatório de IPVA anual"));
-            document.add(new Paragraph("Ano de referência: "+ ano));
-            
-            PdfPTable tabela = new PdfPTable() {
-            }
+            document.add(new Paragraph("Ano de referência: " + ano));
+
+//            PdfPTable tabela = new PdfPTable() {
+//            }
             
             
             
         } catch (Exception e) {
         }
-        
+
     }
 
     private void gerarRelatorioVeiculosInativos() {
@@ -688,7 +765,5 @@ public class TelaRelatorios extends javax.swing.JFrame {
 
     private void gerarRelatorioMultasPorVeiculoAno() {
     }
-    
-
 
 }
