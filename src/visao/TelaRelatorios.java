@@ -311,7 +311,8 @@ public class TelaRelatorios extends javax.swing.JFrame {
         //gerarRelatorioDespesasPorVeiculo();
         //gerarRelatorioSomatorioGeralMes();
         //gerarRelatorioVeiculosInativos();
-        gerarRelatorioCombustivelMes();
+//        gerarRelatorioCombustivelMes();
+        gerarRelatorioIPVAAnual();
 
     }//GEN-LAST:event_jButtonGerarPDFActionPerformed
 
@@ -512,85 +513,6 @@ public class TelaRelatorios extends javax.swing.JFrame {
 
     }
 
-//    private void gerarRelatorioCombustivelMes() {
-//        try {
-//            String mes = (String) jComboBoxMes.getSelectedItem();
-//            String[] partesMes = mes.split(" ");
-//            int mesEscolhido = Integer.parseInt(partesMes[0]);
-//
-//            String ano = (String) jComboBoxAno.getSelectedItem();
-//            int anoEscolhido = Integer.parseInt(ano);
-//
-//            ControleDespesas controle = new ControleDespesas();
-//            ArrayList<Despesas> listaDespesas = controle.listaDeTipoDasDespesas();
-//
-//            int IDcombustivel = 0;
-//
-//            for (Despesas d : listaDespesas) {
-//                String descricao = d.getDescricao().trim().toLowerCase();
-//                if (descricao.equals("combustivel") || descricao.equals("combustível")) {
-//                    IDcombustivel = d.getIdTipoDeDespesa();
-//                }
-//            }
-//
-//            
-//
-//            ArrayList<Movimentacao> listaMov = controleMovimentacao.listar();
-//
-//            Document document = new Document();
-//            PdfWriter.getInstance(document, new FileOutputStream("relatorio_combustivel_mes.pdf"));
-//            document.open();
-//
-//            document.add(new Paragraph("GYN LOG - Relatório de Combustível da Frota"));
-//            document.add(new Paragraph("Mês: " + mes + " | Ano: " + anoEscolhido));
-//            document.add(new Paragraph(" "));
-//            document.add(new Paragraph("Gastos com combustível neste mês:"));
-//            document.add(new Paragraph(" "));
-//
-//            PdfPTable tabela = new PdfPTable(4);
-//            tabela.addCell("ID Veículo");
-//            tabela.addCell("Data");
-//            tabela.addCell("Descrição");
-//            tabela.addCell("Valor (R$)");
-//
-//            double total = 0.0;
-//            int contador = 0;
-//
-//            for (Movimentacao mov : listaMov) {
-//               
-//                String data = mov.getData();
-//                String[] partesData = data.split("/");
-//                int mesMov = Integer.parseInt(partesData[1].trim());
-//                int anoMov = Integer.parseInt(partesData[2].trim());
-//                if(mov.getIdDespesa()==IDcombustivel & mesMov ==mesEscolhido & anoMov== anoEscolhido )
-//
-//                tabela.addCell(String.valueOf(mov.getIdVeiculo()));
-//                tabela.addCell(mov.getData());
-//                tabela.addCell(mov.getDescricaoDespesa());
-//                tabela.addCell(String.valueOf(mov.getValorDespesas()));
-//                total += mov.getValorDespesas();
-//                contador++;
-//            }
-//
-//            if (contador == 0) {
-//                document.add(new Paragraph("Nenhum gasto com combustível neste mês/ano."));
-//            } else {
-//                document.add(tabela);
-//                document.add(new Paragraph(" "));
-//                document.add(new Paragraph("TOTAL gasto com combustível: R$ " + total));
-//            }
-//
-//            document.close();
-//            Desktop.getDesktop().open(new File("relatorio_combustivel_mes.pdf"));
-//
-//            JOptionPane.showMessageDialog(this,
-//                    "Relatório de combustível gerado com sucesso!");
-//
-//        } catch (Exception erro) {
-//            JOptionPane.showMessageDialog(this, "Erro aoo gera o relatorio " + erro.getMessage());
-//        }
-//
-//    }
     private void gerarRelatorioCombustivelMes() {
         try {
             String mes = (String) jComboBoxMes.getSelectedItem();
@@ -668,7 +590,7 @@ public class TelaRelatorios extends javax.swing.JFrame {
                     "Relatório de combustível gerado com sucesso!");
 
         } catch (Exception erro) {
-            JOptionPane.showMessageDialog(this, "Erro aoo gera o relatorio " + erro.getMessage());
+            JOptionPane.showMessageDialog(this, "Erro ao gerar o relatorio " + erro.getMessage());
         }
 
     }
@@ -677,6 +599,10 @@ public class TelaRelatorios extends javax.swing.JFrame {
         try {
             String ano = jComboBoxAno.getSelectedItem().toString();
             int anoEscolhido = Integer.parseInt(ano);
+
+            String id = jComboBoxVeiculo.getSelectedItem().toString();
+            String[] parteId = id.split(" ");
+            int idEscolhido = Integer.parseInt(parteId[1]);
 
             ControleDespesas controle = new ControleDespesas();
             ArrayList<Despesas> lista = controle.listaDeTipoDasDespesas();
@@ -695,16 +621,52 @@ public class TelaRelatorios extends javax.swing.JFrame {
 
             Document document = new Document();
             PdfWriter.getInstance(document, new FileOutputStream("relatorio_IPVA_anual.pdf"));
+            document.open();
 
             document.add(new Paragraph("GYN LOG - Relatório de IPVA anual"));
             document.add(new Paragraph("Ano de referência: " + ano));
+            document.add(new Paragraph(" "));
 
-//            PdfPTable tabela = new PdfPTable() {
-//            }
+            PdfPTable tabela = new PdfPTable(4);
+            tabela.addCell("ID Veículo");
+            tabela.addCell("ID Despesa");
+            tabela.addCell("Ano");
+            tabela.addCell("Valor");
+
+            double total = 0.0;
+            int contador = 0;
+
+            for (Movimentacao mov : listaMov) {
+                String data = mov.getData();
+                String[] partesData = data.split("/");
+                int anoMov = Integer.parseInt(partesData[2].trim());
+                
+                if(mov.getIdDespesa() == idIpva && anoMov == anoEscolhido){
+                    tabela.addCell(mov.getIdVeiculo()+ "");
+                    tabela.addCell(mov.getIdDespesa()+ "");
+                    tabela.addCell(anoMov+ "");
+                    tabela.addCell(mov.getValorDespesas() + "");
+                    total += mov.getValorDespesas();
+                    contador ++;
+                }
+            } 
             
+            if (contador == 0) {
+                document.add(new Paragraph("Nenhum gasto com IPVA este ano."));
+            }else {
+                document.add(tabela);
+                document.add(new Paragraph(" "));
+                document.add(new Paragraph("Gasto total da frota com IPVA: R$ " + total));
+            }
             
+            document.close();
+            Desktop.getDesktop().open(new File("relatorio_IPVA_anual.pdf"));
             
+            JOptionPane.showMessageDialog(this,
+                    "Relatório de gasto total com IPVA gerado com sucesso!");
+
         } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Erro ao gerar o relatorio " + e.getMessage());
         }
 
     }
