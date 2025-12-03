@@ -390,7 +390,7 @@ public class TelaMovimentacao extends javax.swing.JFrame {
                     obj.getIdDespesa(),
                     obj.getIdVeiculo(),
                     obj.getPlacaVeiculo().toUpperCase(),
-                    obj.getDescricaoDespesa(),
+                    obj.getDescricaoDespesa().toUpperCase(),
                     obj.getValorDespesas(),
                     obj.getData(),});
             }

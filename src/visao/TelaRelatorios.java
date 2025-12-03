@@ -30,6 +30,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
+import java.nio.file.FileSystems;
 import modelos.classes.Despesas;
 import modelos.classes.Movimentacao;
 
@@ -595,7 +596,37 @@ public class TelaRelatorios extends javax.swing.JFrame {
     private void gerarRelatorioIPVAAnual() {
         try {
             String ano = jComboBoxAno.getSelectedItem().toString();
-            String id = jComboBoxVeiculo.getSelectedItem().toString();
+            int anoEscolhido = Integer.parseInt(ano);
+            
+            
+            
+            ControleDespesas controle = new ControleDespesas();
+            ArrayList<Despesas> lista = controle.listaDeTipoDasDespesas();
+            
+            int idIpva = 0;
+            
+            for(Despesas d : lista){
+                String descricao = d.getDescricao().trim().toUpperCase();
+                if(descricao.equals("IPVA")){
+                    idIpva = d.getIdTipoDeDespesa();
+                }
+                
+                
+            }
+            
+            ArrayList<Movimentacao> listaMov = controleMovimentacao.listar();
+            
+            Document document = new Document();
+            PdfWriter.getInstance(document,new FileOutputStream("relatorio_IPVA_anual.pdf"));
+            
+            document.add(new Paragraph("GYN LOG - Relatório de IPVA anual"));
+            document.add(new Paragraph("Ano de referência: "+ ano));
+            
+            PdfPTable tabela = new PdfPTable() {
+            }
+            
+            
+            
         } catch (Exception e) {
         }
         
