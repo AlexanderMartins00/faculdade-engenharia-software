@@ -1,0 +1,5 @@
+2;OKV6C34;chevrolet;celta;2022;ATIVO
+1;abc1d23;fiat;argo;2021;ATIVO
+3;EFG4H56;renault;logan;2017;ATIVO
+4;IJK7L89;honda;city;2023;ATIVO
+10;123vssd;wefwef;sdfsf;2010;INATIVO

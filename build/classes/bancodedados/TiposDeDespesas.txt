@@ -1,0 +1,9 @@
+14;Seguro
+18;roda
+19;viseira
+90;parabrisa
+22;oleo
+20;filtro de ar
+17;multa
+1;motor
+2;combustivel
