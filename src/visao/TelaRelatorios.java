@@ -16,7 +16,6 @@ import controle.ControleDespesas;
 
 // iText
 import com.itextpdf.text.Document;
-import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
@@ -24,12 +23,8 @@ import controle.ControleMovimentacao;
 
 // Arquivos e desktop
 import java.awt.Desktop;
-import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileOutputStream;
-import java.io.FileReader;
-import java.io.IOException;
-import java.nio.file.FileSystems;
 import modelos.classes.Despesas;
 import modelos.classes.Movimentacao;
 
@@ -299,9 +294,9 @@ public class TelaRelatorios extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Erro ao carregar anos: " + e.getMessage());
         }
     }
-    
-    private void mudarComboboxQuandoRelatorioSelecionado(){
-       int escolhido = jComboBoxRelatorio.getSelectedIndex();
+
+    private void mudarComboboxQuandoRelatorioSelecionado() {
+        int escolhido = jComboBoxRelatorio.getSelectedIndex();
 
         jComboBoxVeiculo.setEnabled(true);
         jComboBoxAno.setEnabled(true);
@@ -313,37 +308,36 @@ public class TelaRelatorios extends javax.swing.JFrame {
                 jComboBoxAno.setEnabled(false);
                 jComboBoxMes.setEnabled(false);
                 break;
-                
+
             case 1:
                 jComboBoxVeiculo.setEnabled(false);
                 jComboBoxAno.setEnabled(true);
                 jComboBoxMes.setEnabled(true);
                 break;
-                
-            case 2: 
+
+            case 2:
                 jComboBoxVeiculo.setEnabled(false);
                 jComboBoxAno.setEnabled(true);
                 jComboBoxMes.setEnabled(true);
                 break;
-                
-            case 3: 
+
+            case 3:
                 jComboBoxVeiculo.setEnabled(false);
                 jComboBoxAno.setEnabled(true);
                 jComboBoxMes.setEnabled(false);
                 break;
-                
-            case 4: 
+
+            case 4:
                 jComboBoxVeiculo.setEnabled(false);
                 jComboBoxAno.setEnabled(false);
                 jComboBoxMes.setEnabled(false);
                 break;
-                
-            case 5: 
+
+            case 5:
                 jComboBoxVeiculo.setEnabled(true);
                 jComboBoxAno.setEnabled(true);
                 jComboBoxMes.setEnabled(false);
                 break;
-                
 
         }
     }
@@ -357,38 +351,36 @@ public class TelaRelatorios extends javax.swing.JFrame {
 
     private void jComboBoxRelatorioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxRelatorioActionPerformed
         // TODO add your handling code here:
-       mudarComboboxQuandoRelatorioSelecionado();
+        mudarComboboxQuandoRelatorioSelecionado();
     }//GEN-LAST:event_jComboBoxRelatorioActionPerformed
 
     private void jButtonGerarPDFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGerarPDFActionPerformed
         // TODO add your handling code here:
-        
+
         int escolhido = jComboBoxRelatorio.getSelectedIndex();
-        
-        switch(escolhido){
+
+        switch (escolhido) {
             case 0:
-               gerarRelatorioDespesasPorVeiculo();
-               break;
+                gerarRelatorioDespesasPorVeiculo();
+                break;
             case 1:
                 gerarRelatorioSomatorioGeralMes();
                 break;
-            case 2: 
+            case 2:
                 gerarRelatorioCombustivelMes();
                 break;
-            case 3: 
+            case 3:
                 gerarRelatorioIPVAAnual();
                 break;
             case 4:
                 gerarRelatorioVeiculosInativos();
                 break;
-            case 5: 
+            case 5:
                 gerarRelatorioMultasPorVeiculoAno();
                 break;
-                //funcioando 
-                //funciona porra
-                
+
         }
-        
+
     }//GEN-LAST:event_jButtonGerarPDFActionPerformed
 
     private void jComboBoxRelatorioItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBoxRelatorioItemStateChanged
@@ -457,7 +449,6 @@ public class TelaRelatorios extends javax.swing.JFrame {
             String[] partes = veiculo.split(" ");
             int idVeiculo = Integer.parseInt(partes[1]);
 
-            // ControleMovimentacao controleMovimentacao = new ControleMovimentacao();
             ArrayList<Movimentacao> lista = controleMovimentacao.listar();
 
             PdfWriter.getInstance(document, new FileOutputStream("relatorio_despesas_veiculo.pdf"));
@@ -489,9 +480,6 @@ public class TelaRelatorios extends javax.swing.JFrame {
                     tabela.addCell(String.valueOf(mov.getValorDespesas()));
 
                     total += mov.getValorDespesas();
-                    document.add(tabela);
-                    document.add(new Paragraph(" "));
-                    document.add(new Paragraph("Total de despesas para este veículo: R$ " + total));
                 }
             }
             if (contador == 0) {
@@ -506,8 +494,7 @@ public class TelaRelatorios extends javax.swing.JFrame {
 
             Desktop.getDesktop().open(new File("relatorio_despesas_veiculo.pdf"));
 
-            JOptionPane.showMessageDialog(this,
-                    "Relatório de despesas por veículo gerado com sucesso!");
+            JOptionPane.showMessageDialog(this, "Relatório de despesas por veículo gerado com sucesso!");
 
         } catch (Exception erro) {
             JOptionPane.showMessageDialog(this, "Não foi possivel gerar o relatótrio" + erro.getMessage());
@@ -577,10 +564,8 @@ public class TelaRelatorios extends javax.swing.JFrame {
                 document.add(new Paragraph("TOTAL GERAL de despesas da frota no mês: R$ " + total));
             }
 
-            // 9) Finaliza
             document.close();
 
-            // 10) Abre o PDF
             Desktop.getDesktop().open(new File("relatorio_despesas_frota_mes.pdf"));
 
             JOptionPane.showMessageDialog(this,
@@ -759,7 +744,7 @@ public class TelaRelatorios extends javax.swing.JFrame {
             Document document = new Document();
             PdfWriter.getInstance(document, new FileOutputStream("relatorio_veiculos_inativos.pdf"));
             document.open();
-//2
+
             document.add(new Paragraph("GYN LOG - Relatório de Veículos Inativos"));
             document.add(new Paragraph(" "));
             document.add(new Paragraph("Lista de veículos com status INATIVO:"));
@@ -777,7 +762,7 @@ public class TelaRelatorios extends javax.swing.JFrame {
                 Veiculos v = lista.get(i);
 
                 if (v.getStatus() == StatusVeiculo.INATIVO) {
-                    contador++; // achou um inativo
+                    contador++;
 
                     tabela.addCell(String.valueOf(v.getIdVeiculo()));
                     tabela.addCell(v.getPlaca());
@@ -796,16 +781,80 @@ public class TelaRelatorios extends javax.swing.JFrame {
             document.close();
             Desktop.getDesktop().open(new File("relatorio_veiculos_inativos.pdf"));
 
-            JOptionPane.showMessageDialog(this,
-                    "Relatório de veículos inativos gerado com sucesso!");
+            JOptionPane.showMessageDialog(this, "Relatório de veículos inativos gerado com sucesso!");
 
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(this,
-                    "Erro ao gerar relatório de veículos inativos: " + e.getMessage());
+            JOptionPane.showMessageDialog(this, "Erro ao gerar relatório de veículos inativos: " + e.getMessage());
         }
     }
 
     private void gerarRelatorioMultasPorVeiculoAno() {
+
+        try {
+            ArrayList<Movimentacao> listaMov = controleMovimentacao.listar();
+            String ano = jComboBoxAno.getSelectedItem().toString();
+            int anoEscolhido = Integer.parseInt(ano);
+
+            String veiculo = jComboBoxVeiculo.getSelectedItem().toString();
+            String[] partes = veiculo.split(" ");
+            int idveiculo = Integer.parseInt(partes[1]);
+
+            ControleDespesas controleDespesas = new ControleDespesas();
+            ArrayList<Despesas> listaDespesas = controleDespesas.listaDeTipoDasDespesas();
+
+            int idMulta = 0;
+
+            for (Despesas d : listaDespesas) {
+                String despesa = d.getDescricao().trim().toLowerCase();
+                if (despesa.equals("multa")) {
+                    idMulta = d.getIdTipoDeDespesa();
+                }
+            }
+
+            Document document = new Document();
+            PdfWriter.getInstance(document, new FileOutputStream("relatorio_multas_veiculos_Ano.pdf"));
+            document.open();
+            document.add(new Paragraph("GYN LOG - Relatório de IPVA anual"));
+            document.add(new Paragraph("Ano de referência: " + ano));
+            document.add(new Paragraph("Veiculo de referencia: "+ veiculo));
+            document.add(new Paragraph(" "));
+            PdfPTable tabela = new PdfPTable(4);
+            tabela.addCell("ID Mov.");
+            tabela.addCell("Data");
+            tabela.addCell("Descrição");
+            tabela.addCell("Valor (R$)");
+            document.add(new Paragraph(" "));
+            double totalDeMultas = 0;
+            int cont = 0;
+
+            for (Movimentacao m : listaMov) {
+                String data = m.getData();
+                String[] partesData = data.split("/");
+                int anoMov = Integer.parseInt(partesData[2].trim());
+
+                if (m.getIdVeiculo() == idveiculo && anoEscolhido == anoMov) {
+                    tabela.addCell(String.valueOf(m.getIdMovimentacao()));
+                    tabela.addCell(m.getData());
+                    tabela.addCell(m.getDescricaoDespesa());
+                    tabela.addCell(String.valueOf(m.getValorDespesas()));
+                    totalDeMultas += m.getValorDespesas();
+                    cont++;
+                }
+            }
+            if (cont == 0) {
+                document.add(new Paragraph("Nenhuma multa registrada para este veículo neste ano."));
+            } else {
+                document.add(tabela);
+                document.add(new Paragraph(" "));
+                document.add(new Paragraph("Total em multas no ano: R$ " + totalDeMultas));
+            }
+            document.close();
+            Desktop.getDesktop().open(new File("relatorio_multas_veiculos_Ano.pdf"));
+            JOptionPane.showMessageDialog(this, "Relatório de multas gerado com sucesso");
+
+        } catch (Exception erro) {
+            JOptionPane.showMessageDialog(this, "Erro ao gerar o pdf" + erro.getMessage());
+        }
 
     }
 
