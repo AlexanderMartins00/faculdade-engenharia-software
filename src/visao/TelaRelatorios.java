@@ -45,6 +45,8 @@ public class TelaRelatorios extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         listarVeiculosComboBox();
         listarAnosComboBox();
+        jComboBoxAno.setEnabled(false);
+        jComboBoxMes.setEnabled(false);
     }
 
     /**
