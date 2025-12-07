@@ -3,9 +3,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package visao;
-//deu certo
-// deu certo 2
-//deu certo 3
 
 import controle.ControleVeiculo;
 import java.util.ArrayList;
@@ -765,7 +762,6 @@ public class TelaRelatorios extends javax.swing.JFrame {
 
                 if (v.getStatus() == StatusVeiculo.INATIVO) {
                     contador++;
-
                     tabela.addCell(String.valueOf(v.getIdVeiculo()));
                     tabela.addCell(v.getPlaca());
                     tabela.addCell(v.getModelo());

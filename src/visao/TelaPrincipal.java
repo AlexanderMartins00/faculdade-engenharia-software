@@ -29,66 +29,50 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         jEditorPane1 = new javax.swing.JEditorPane();
-        jPanel2 = new javax.swing.JPanel();
-        jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jButtonMudarParaTelaDespesa = new javax.swing.JButton();
-        jButtonAcessarTelaVeiculo = new javax.swing.JButton();
-        jButtonAcessarTelaMovimentacoes = new javax.swing.JButton();
-        jButtonAcessarTelaRelatorio = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
+        jPanel5 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jButtonAcessarTelaVeiculo = new javax.swing.JButton();
+        jButtonAcessarTelaRelatorio = new javax.swing.JButton();
+        jButtonAcessarTelaMovimentacoes = new javax.swing.JButton();
+        jButtonMudarParaTelaDespesa = new javax.swing.JButton();
 
         jScrollPane1.setViewportView(jEditorPane1);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel2.setBackground(new java.awt.Color(0, 0, 0));
-        jPanel2.setForeground(new java.awt.Color(0, 0, 0));
+        jPanel4.setBackground(new java.awt.Color(0, 51, 153));
 
-        jPanel1.setBackground(new java.awt.Color(153, 153, 255));
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createTitledBorder(null, "GYN LOG", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.BELOW_TOP, new java.awt.Font("Arial Black", 1, 24), new java.awt.Color(255, 255, 255)))); // NOI18N
-
-        jLabel2.setFont(new java.awt.Font("Arial Black", 3, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("A MELHOR EMPRESA DE LOGÍSTICA VEICULAR DO CENTRO OESTE ");
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(242, 242, 242)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(48, Short.MAX_VALUE)
-                .addComponent(jLabel2)
-                .addGap(44, 44, 44))
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 758, Short.MAX_VALUE)
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addContainerGap())
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 67, Short.MAX_VALUE)
         );
 
-        jButtonMudarParaTelaDespesa.setBackground(new java.awt.Color(255, 255, 255));
-        jButtonMudarParaTelaDespesa.setFont(new java.awt.Font("Arial", 3, 12)); // NOI18N
-        jButtonMudarParaTelaDespesa.setForeground(new java.awt.Color(0, 0, 0));
-        jButtonMudarParaTelaDespesa.setText("DESPESAS");
-        jButtonMudarParaTelaDespesa.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonMudarParaTelaDespesaActionPerformed(evt);
-            }
-        });
+        jPanel5.setBackground(new java.awt.Color(0, 51, 153));
 
-        jButtonAcessarTelaVeiculo.setBackground(new java.awt.Color(255, 255, 255));
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 45, Short.MAX_VALUE)
+        );
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/logo-removebg-preview.png"))); // NOI18N
+
+        jButtonAcessarTelaVeiculo.setBackground(new java.awt.Color(0, 51, 153));
         jButtonAcessarTelaVeiculo.setFont(new java.awt.Font("Arial", 3, 12)); // NOI18N
-        jButtonAcessarTelaVeiculo.setForeground(new java.awt.Color(0, 0, 0));
+        jButtonAcessarTelaVeiculo.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonAcessarTelaVeiculo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/car.png"))); // NOI18N
         jButtonAcessarTelaVeiculo.setText("VEÍCULOS");
         jButtonAcessarTelaVeiculo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -96,19 +80,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
 
-        jButtonAcessarTelaMovimentacoes.setBackground(new java.awt.Color(255, 255, 255));
-        jButtonAcessarTelaMovimentacoes.setFont(new java.awt.Font("Arial", 3, 12)); // NOI18N
-        jButtonAcessarTelaMovimentacoes.setForeground(new java.awt.Color(0, 0, 0));
-        jButtonAcessarTelaMovimentacoes.setText("MOVIMENTAÇÕES");
-        jButtonAcessarTelaMovimentacoes.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonAcessarTelaMovimentacoesActionPerformed(evt);
-            }
-        });
-
-        jButtonAcessarTelaRelatorio.setBackground(new java.awt.Color(255, 255, 255));
+        jButtonAcessarTelaRelatorio.setBackground(new java.awt.Color(0, 51, 153));
         jButtonAcessarTelaRelatorio.setFont(new java.awt.Font("Arial", 3, 12)); // NOI18N
-        jButtonAcessarTelaRelatorio.setForeground(new java.awt.Color(0, 0, 0));
+        jButtonAcessarTelaRelatorio.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonAcessarTelaRelatorio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/icons8-relatório-35.png"))); // NOI18N
         jButtonAcessarTelaRelatorio.setText("RELATÓRIOS");
         jButtonAcessarTelaRelatorio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -116,90 +91,78 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
 
-        jPanel4.setBackground(new java.awt.Color(153, 153, 255));
+        jButtonAcessarTelaMovimentacoes.setBackground(new java.awt.Color(0, 51, 153));
+        jButtonAcessarTelaMovimentacoes.setFont(new java.awt.Font("Arial", 3, 12)); // NOI18N
+        jButtonAcessarTelaMovimentacoes.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonAcessarTelaMovimentacoes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/icons8-pagamento-35.png"))); // NOI18N
+        jButtonAcessarTelaMovimentacoes.setText("MOVIMENTAÇÕES");
+        jButtonAcessarTelaMovimentacoes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonAcessarTelaMovimentacoesActionPerformed(evt);
+            }
+        });
 
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 39, Short.MAX_VALUE)
-        );
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGap(67, 67, 67)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButtonAcessarTelaRelatorio, javax.swing.GroupLayout.DEFAULT_SIZE, 229, Short.MAX_VALUE)
-                    .addComponent(jButtonMudarParaTelaDespesa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButtonAcessarTelaMovimentacoes, javax.swing.GroupLayout.DEFAULT_SIZE, 229, Short.MAX_VALUE)
-                    .addComponent(jButtonAcessarTelaVeiculo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(49, 49, 49))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(59, 59, 59)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButtonMudarParaTelaDespesa, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButtonAcessarTelaMovimentacoes, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(33, 33, 33)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButtonAcessarTelaVeiculo, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButtonAcessarTelaRelatorio, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 71, Short.MAX_VALUE)
-                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18))
-        );
+        jButtonMudarParaTelaDespesa.setBackground(new java.awt.Color(0, 51, 153));
+        jButtonMudarParaTelaDespesa.setFont(new java.awt.Font("Arial", 3, 12)); // NOI18N
+        jButtonMudarParaTelaDespesa.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonMudarParaTelaDespesa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/icons8-dinheiro-35.png"))); // NOI18N
+        jButtonMudarParaTelaDespesa.setText("DESPESAS");
+        jButtonMudarParaTelaDespesa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonMudarParaTelaDespesaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 470, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jButtonMudarParaTelaDespesa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButtonAcessarTelaMovimentacoes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButtonAcessarTelaRelatorio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButtonAcessarTelaVeiculo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(54, 54, 54))
+            .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(28, 28, 28)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jButtonMudarParaTelaDespesa, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButtonAcessarTelaMovimentacoes, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButtonAcessarTelaRelatorio, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButtonAcessarTelaVeiculo, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
+                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButtonMudarParaTelaDespesaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonMudarParaTelaDespesaActionPerformed
-        // TODO add your handling code here:
-        
-        TelaDespesas TelaDespesas = new TelaDespesas();
-        TelaDespesas.setVisible(true);
-        dispose();
-    }//GEN-LAST:event_jButtonMudarParaTelaDespesaActionPerformed
-
     private void jButtonAcessarTelaVeiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAcessarTelaVeiculoActionPerformed
         // TODO add your handling code here:
-        
+
         TelaVeiculos telaveiculo = new TelaVeiculos ();
         telaveiculo.setVisible(true);
         dispose();
-        
     }//GEN-LAST:event_jButtonAcessarTelaVeiculoActionPerformed
 
     private void jButtonAcessarTelaRelatorioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAcessarTelaRelatorioActionPerformed
         // TODO add your handling code here:
-        
+
         TelaRelatorios telarelatorio = new TelaRelatorios();
         telarelatorio.setVisible(true);
         dispose();
@@ -207,11 +170,19 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     private void jButtonAcessarTelaMovimentacoesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAcessarTelaMovimentacoesActionPerformed
         // TODO add your handling code here:
-        
+
         TelaMovimentacao telamovimentacao = new TelaMovimentacao ();
         telamovimentacao.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButtonAcessarTelaMovimentacoesActionPerformed
+
+    private void jButtonMudarParaTelaDespesaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonMudarParaTelaDespesaActionPerformed
+        // TODO add your handling code here:
+
+        TelaDespesas TelaDespesas = new TelaDespesas();
+        TelaDespesas.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jButtonMudarParaTelaDespesaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -255,10 +226,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton jButtonMudarParaTelaDespesa;
     private javax.swing.JEditorPane jEditorPane1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }
