@@ -70,6 +70,7 @@ public class TelaMovimentacao extends javax.swing.JFrame {
         jTextFieldDescricaoDespesa = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         jFormattedTextField1 = new javax.swing.JFormattedTextField();
+        jButtonLimpar = new javax.swing.JButton();
         jButtonInserir = new javax.swing.JButton();
         jButtonBuscar = new javax.swing.JButton();
         jButtonEditar = new javax.swing.JButton();
@@ -186,6 +187,13 @@ public class TelaMovimentacao extends javax.swing.JFrame {
             }
         });
 
+        jButtonLimpar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/botaoReiniciar22.png"))); // NOI18N
+        jButtonLimpar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonLimparActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -213,6 +221,8 @@ public class TelaMovimentacao extends javax.swing.JFrame {
                         .addComponent(jLabel5)
                         .addGap(18, 18, 18)
                         .addComponent(jTextFieldIdMovimentacao, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButtonLimpar, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -245,7 +255,8 @@ public class TelaMovimentacao extends javax.swing.JFrame {
                     .addComponent(jLabel5)
                     .addComponent(jTextFieldIdMovimentacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel9)
-                    .addComponent(jFormattedTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jFormattedTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonLimpar))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -415,16 +426,10 @@ public class TelaMovimentacao extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void preencherData() {
-        // cria um formatador no padrão que você usa na máscara
         DateTimeFormatter formatador = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-
-        // pega a data de hoje
         LocalDate hoje = LocalDate.now();
 
-        // formata e joga no campo
         jFormattedTextField1.setText(hoje.format(formatador));
-        // se for JTextField, mesma coisa:
-        // jTextFieldData.setText(hoje.format(formatador));
     }
 
     private void mostrarDadosNaTela() {
@@ -724,6 +729,17 @@ public class TelaMovimentacao extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jFormattedTextField1ActionPerformed
 
+    private void jButtonLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLimparActionPerformed
+        // TODO add your handling code here:
+        jTextFieldDescricaoDespesa.setText(null);
+        jTextFieldIdMovimentacao.setText(null);
+        jTextFieldValorDespesa.setText(null);
+        jFormattedTextField1.setText(null);
+        jTextFieldIdMovimentacao.setEnabled(true);
+        preencherData();
+        
+    }//GEN-LAST:event_jButtonLimparActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -763,6 +779,7 @@ public class TelaMovimentacao extends javax.swing.JFrame {
     private javax.swing.JButton jButtonBuscar;
     private javax.swing.JButton jButtonEditar;
     private javax.swing.JButton jButtonInserir;
+    private javax.swing.JButton jButtonLimpar;
     private javax.swing.JButton jButtonRemover;
     private javax.swing.JButton jButtonVoltarTelaInicial;
     private javax.swing.JComboBox<Despesas> jComboBoxDespesa;
