@@ -19,6 +19,8 @@ import modelos.classes.Despesas;
 import modelos.classes.Veiculos;
 import modelos.enumeracoes.StatusVeiculo;
 import javax.swing.DefaultComboBoxModel;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 /**
  *
@@ -38,6 +40,7 @@ public class TelaMovimentacao extends javax.swing.JFrame {
         listarDespesasComboBox();
         listarVeiculosComboBox();
         mostrarDadosNaTela();
+        preencherData();
     }
 
     /**
@@ -177,6 +180,11 @@ public class TelaMovimentacao extends javax.swing.JFrame {
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
+        jFormattedTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jFormattedTextField1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -244,7 +252,7 @@ public class TelaMovimentacao extends javax.swing.JFrame {
         jButtonInserir.setBackground(new java.awt.Color(0, 102, 0));
         jButtonInserir.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
         jButtonInserir.setForeground(new java.awt.Color(255, 255, 255));
-        jButtonInserir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/accept.png"))); // NOI18N
+        jButtonInserir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/botãoIncluir.png"))); // NOI18N
         jButtonInserir.setText("INSERIR");
         jButtonInserir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -255,7 +263,7 @@ public class TelaMovimentacao extends javax.swing.JFrame {
         jButtonBuscar.setBackground(new java.awt.Color(0, 0, 102));
         jButtonBuscar.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
         jButtonBuscar.setForeground(new java.awt.Color(255, 255, 255));
-        jButtonBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/magnifier (1).png"))); // NOI18N
+        jButtonBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/botãoBuscar.png"))); // NOI18N
         jButtonBuscar.setText("BUSCAR");
         jButtonBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -266,7 +274,7 @@ public class TelaMovimentacao extends javax.swing.JFrame {
         jButtonEditar.setBackground(new java.awt.Color(102, 0, 102));
         jButtonEditar.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
         jButtonEditar.setForeground(new java.awt.Color(255, 255, 255));
-        jButtonEditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/edit.png"))); // NOI18N
+        jButtonEditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/botãoEditar.png"))); // NOI18N
         jButtonEditar.setText("EDITAR");
         jButtonEditar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -277,7 +285,7 @@ public class TelaMovimentacao extends javax.swing.JFrame {
         jButtonRemover.setBackground(new java.awt.Color(255, 0, 0));
         jButtonRemover.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
         jButtonRemover.setForeground(new java.awt.Color(255, 255, 255));
-        jButtonRemover.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/delete.png"))); // NOI18N
+        jButtonRemover.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/botãoRemover.png"))); // NOI18N
         jButtonRemover.setText("REMOVER");
         jButtonRemover.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -290,7 +298,7 @@ public class TelaMovimentacao extends javax.swing.JFrame {
         jButtonVoltarTelaInicial.setBackground(new java.awt.Color(255, 255, 255));
         jButtonVoltarTelaInicial.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
         jButtonVoltarTelaInicial.setForeground(new java.awt.Color(0, 0, 0));
-        jButtonVoltarTelaInicial.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/back.png"))); // NOI18N
+        jButtonVoltarTelaInicial.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/botãoVoltar.png"))); // NOI18N
         jButtonVoltarTelaInicial.setText("Voltar para tela inicial");
         jButtonVoltarTelaInicial.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -406,6 +414,19 @@ public class TelaMovimentacao extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void preencherData() {
+        // cria um formatador no padrão que você usa na máscara
+        DateTimeFormatter formatador = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+
+        // pega a data de hoje
+        LocalDate hoje = LocalDate.now();
+
+        // formata e joga no campo
+        jFormattedTextField1.setText(hoje.format(formatador));
+        // se for JTextField, mesma coisa:
+        // jTextFieldData.setText(hoje.format(formatador));
+    }
+
     private void mostrarDadosNaTela() {
         try {
             DefaultTableModel model = (DefaultTableModel) jTableSaidaMovimentacoesGrid.getModel();
@@ -430,11 +451,10 @@ public class TelaMovimentacao extends javax.swing.JFrame {
     private void listarVeiculosComboBox() {
         try {
             ArrayList<Veiculos> lista = controleVeiculo.listar();
-            
-            
-            Collections.sort(lista, new Comparator<Veiculos>(){
+
+            Collections.sort(lista, new Comparator<Veiculos>() {
                 @Override
-                public int compare(Veiculos v1, Veiculos v2){
+                public int compare(Veiculos v1, Veiculos v2) {
                     return Integer.compare(v1.getIdVeiculo(), v2.getIdVeiculo());
                 }
             });
@@ -457,16 +477,15 @@ public class TelaMovimentacao extends javax.swing.JFrame {
         try {
             ControleDespesas controle = new ControleDespesas();
             ArrayList<Despesas> lista = controle.listaDeTipoDasDespesas();
-            
-            Collections.sort(lista, new Comparator<Despesas>(){
+
+            Collections.sort(lista, new Comparator<Despesas>() {
                 @Override
-                public int compare(Despesas d1, Despesas d2){
+                public int compare(Despesas d1, Despesas d2) {
                     return Integer.compare(d1.getIdTipoDeDespesa(), d2.getIdTipoDeDespesa());
                 }
             });
             DefaultComboBoxModel<Despesas> model = new DefaultComboBoxModel<>();
-             
-            
+
             for (Despesas d : lista) {
                 model.addElement(d);
             }
@@ -630,30 +649,31 @@ public class TelaMovimentacao extends javax.swing.JFrame {
                 if (despesaSelecionada != null) {
                     jComboBoxDespesa.setSelectedItem(despesaSelecionada);
                 }
-                
+
                 ControleVeiculo controlev = new ControleVeiculo();
                 ArrayList<Veiculos> listagem = controlev.listar();
-                
+
                 String idVeiculo = jTableSaidaMovimentacoesGrid.getValueAt(linha, 2) + "";
                 Veiculos veiculoSelecionado = null;
-                
-                for (Veiculos veiculos : listagem){
-                    if(veiculos.getIdVeiculo() == Integer.parseInt(idVeiculo)){
+
+                for (Veiculos veiculos : listagem) {
+                    if (veiculos.getIdVeiculo() == Integer.parseInt(idVeiculo)) {
                         veiculoSelecionado = veiculos;
                         break;
                     }
-                    
+
                 }
-                if (veiculoSelecionado != null){
+                if (veiculoSelecionado != null) {
                     jComboBoxVeiculo.setSelectedItem(veiculoSelecionado);
                 }
-                 
 
                 // Atualiza os outros campos
                 jTextFieldDescricaoDespesa.setText(descricao);
                 jTextFieldIdMovimentacao.setText(idMovimentacao);
                 jTextFieldValorDespesa.setText(valor);
                 jFormattedTextField1.setText(data);
+                jTextFieldIdMovimentacao.setEnabled(false);
+
             }
         } catch (Exception e) {
         }
@@ -699,6 +719,10 @@ public class TelaMovimentacao extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_jButtonEditarActionPerformed
+
+    private void jFormattedTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormattedTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jFormattedTextField1ActionPerformed
 
     /**
      * @param args the command line arguments

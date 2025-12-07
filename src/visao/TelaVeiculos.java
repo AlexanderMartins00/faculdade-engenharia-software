@@ -100,7 +100,7 @@ public class TelaVeiculos extends javax.swing.JFrame {
         jButtonIncluirVeiculo.setBackground(new java.awt.Color(0, 102, 0));
         jButtonIncluirVeiculo.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
         jButtonIncluirVeiculo.setForeground(new java.awt.Color(255, 255, 255));
-        jButtonIncluirVeiculo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/accept.png"))); // NOI18N
+        jButtonIncluirVeiculo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/botãoIncluir.png"))); // NOI18N
         jButtonIncluirVeiculo.setText("INCLUIR");
         jButtonIncluirVeiculo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -111,7 +111,7 @@ public class TelaVeiculos extends javax.swing.JFrame {
         jButtonBuscarVeiculo.setBackground(new java.awt.Color(0, 0, 102));
         jButtonBuscarVeiculo.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
         jButtonBuscarVeiculo.setForeground(new java.awt.Color(255, 255, 255));
-        jButtonBuscarVeiculo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/magnifier (1).png"))); // NOI18N
+        jButtonBuscarVeiculo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/botãoBuscar.png"))); // NOI18N
         jButtonBuscarVeiculo.setText("BUSCAR");
         jButtonBuscarVeiculo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -122,7 +122,7 @@ public class TelaVeiculos extends javax.swing.JFrame {
         jButtonEditarVeiculo.setBackground(new java.awt.Color(102, 0, 102));
         jButtonEditarVeiculo.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
         jButtonEditarVeiculo.setForeground(new java.awt.Color(255, 255, 255));
-        jButtonEditarVeiculo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/edit.png"))); // NOI18N
+        jButtonEditarVeiculo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/botãoEditar.png"))); // NOI18N
         jButtonEditarVeiculo.setText("EDITAR");
         jButtonEditarVeiculo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -133,7 +133,7 @@ public class TelaVeiculos extends javax.swing.JFrame {
         jButtonRemoverVeiculo.setBackground(new java.awt.Color(255, 0, 0));
         jButtonRemoverVeiculo.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
         jButtonRemoverVeiculo.setForeground(new java.awt.Color(255, 255, 255));
-        jButtonRemoverVeiculo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/delete.png"))); // NOI18N
+        jButtonRemoverVeiculo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/botãoRemover.png"))); // NOI18N
         jButtonRemoverVeiculo.setText("REMOVER");
         jButtonRemoverVeiculo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -249,7 +249,7 @@ public class TelaVeiculos extends javax.swing.JFrame {
         jButtonVoltarTelaInicial.setBackground(new java.awt.Color(255, 255, 255));
         jButtonVoltarTelaInicial.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
         jButtonVoltarTelaInicial.setForeground(new java.awt.Color(0, 0, 0));
-        jButtonVoltarTelaInicial.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/back.png"))); // NOI18N
+        jButtonVoltarTelaInicial.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/botãoVoltar.png"))); // NOI18N
         jButtonVoltarTelaInicial.setText("Voltar  para tela inicial");
         jButtonVoltarTelaInicial.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

@@ -63,7 +63,7 @@ public class TelaDespesas extends javax.swing.JFrame {
         jButtonIncluir.setBackground(new java.awt.Color(0, 102, 0));
         jButtonIncluir.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
         jButtonIncluir.setForeground(new java.awt.Color(255, 255, 255));
-        jButtonIncluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/accept.png"))); // NOI18N
+        jButtonIncluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/botãoIncluir.png"))); // NOI18N
         jButtonIncluir.setText("INCLUIR");
         jButtonIncluir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -74,7 +74,7 @@ public class TelaDespesas extends javax.swing.JFrame {
         jButtonBuscar.setBackground(new java.awt.Color(0, 0, 102));
         jButtonBuscar.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
         jButtonBuscar.setForeground(new java.awt.Color(255, 255, 255));
-        jButtonBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/magnifier (1).png"))); // NOI18N
+        jButtonBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/botãoBuscar.png"))); // NOI18N
         jButtonBuscar.setText("BUSCAR");
         jButtonBuscar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -90,7 +90,7 @@ public class TelaDespesas extends javax.swing.JFrame {
         jButtonEditar.setBackground(new java.awt.Color(102, 0, 102));
         jButtonEditar.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
         jButtonEditar.setForeground(new java.awt.Color(255, 255, 255));
-        jButtonEditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/edit.png"))); // NOI18N
+        jButtonEditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/botãoEditar.png"))); // NOI18N
         jButtonEditar.setText("EDITAR");
         jButtonEditar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -101,7 +101,7 @@ public class TelaDespesas extends javax.swing.JFrame {
         jButtonRemover.setBackground(new java.awt.Color(255, 0, 0));
         jButtonRemover.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
         jButtonRemover.setForeground(new java.awt.Color(255, 255, 255));
-        jButtonRemover.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/delete.png"))); // NOI18N
+        jButtonRemover.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/botãoRemover.png"))); // NOI18N
         jButtonRemover.setText("REMOVER");
         jButtonRemover.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -158,7 +158,7 @@ public class TelaDespesas extends javax.swing.JFrame {
         jButtonVoltarTelaInicial.setBackground(new java.awt.Color(255, 255, 255));
         jButtonVoltarTelaInicial.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
         jButtonVoltarTelaInicial.setForeground(new java.awt.Color(0, 0, 0));
-        jButtonVoltarTelaInicial.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/back.png"))); // NOI18N
+        jButtonVoltarTelaInicial.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/botãoVoltar.png"))); // NOI18N
         jButtonVoltarTelaInicial.setText("Voltar para tela inicial");
         jButtonVoltarTelaInicial.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

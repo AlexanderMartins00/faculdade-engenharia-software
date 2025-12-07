@@ -411,6 +411,9 @@
                   <Format format="## / ## / ####" subtype="-1" type="5"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jFormattedTextField1ActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
@@ -426,7 +429,7 @@
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/icons/accept.png"/>
+              <Image iconType="3" name="/icons/bot&#xe3;oIncluir.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="INSERIR"/>
           </Properties>
@@ -446,7 +449,7 @@
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/icons/magnifier (1).png"/>
+              <Image iconType="3" name="/icons/bot&#xe3;oBuscar.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="BUSCAR"/>
           </Properties>
@@ -466,7 +469,7 @@
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/icons/edit.png"/>
+              <Image iconType="3" name="/icons/bot&#xe3;oEditar.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="EDITAR"/>
           </Properties>
@@ -486,7 +489,7 @@
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/icons/delete.png"/>
+              <Image iconType="3" name="/icons/bot&#xe3;oRemover.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="REMOVER"/>
           </Properties>
@@ -539,7 +542,7 @@
                   <Color blue="0" green="0" red="0" type="rgb"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/icons/back.png"/>
+                  <Image iconType="3" name="/icons/bot&#xe3;oVoltar.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Voltar para tela inicial"/>
               </Properties>

@@ -67,12 +67,12 @@ public class TelaPrincipal extends javax.swing.JFrame {
             .addGap(0, 45, Short.MAX_VALUE)
         );
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/logo-removebg-preview.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/logoTelaPrincipal.png"))); // NOI18N
 
         jButtonAcessarTelaVeiculo.setBackground(new java.awt.Color(0, 51, 153));
         jButtonAcessarTelaVeiculo.setFont(new java.awt.Font("Arial", 3, 12)); // NOI18N
         jButtonAcessarTelaVeiculo.setForeground(new java.awt.Color(255, 255, 255));
-        jButtonAcessarTelaVeiculo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/car.png"))); // NOI18N
+        jButtonAcessarTelaVeiculo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/botãoveiculos.png"))); // NOI18N
         jButtonAcessarTelaVeiculo.setText("VEÍCULOS");
         jButtonAcessarTelaVeiculo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -83,7 +83,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jButtonAcessarTelaRelatorio.setBackground(new java.awt.Color(0, 51, 153));
         jButtonAcessarTelaRelatorio.setFont(new java.awt.Font("Arial", 3, 12)); // NOI18N
         jButtonAcessarTelaRelatorio.setForeground(new java.awt.Color(255, 255, 255));
-        jButtonAcessarTelaRelatorio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/icons8-relatório-35.png"))); // NOI18N
+        jButtonAcessarTelaRelatorio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/botãoRelatorios.png"))); // NOI18N
         jButtonAcessarTelaRelatorio.setText("RELATÓRIOS");
         jButtonAcessarTelaRelatorio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -94,7 +94,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jButtonAcessarTelaMovimentacoes.setBackground(new java.awt.Color(0, 51, 153));
         jButtonAcessarTelaMovimentacoes.setFont(new java.awt.Font("Arial", 3, 12)); // NOI18N
         jButtonAcessarTelaMovimentacoes.setForeground(new java.awt.Color(255, 255, 255));
-        jButtonAcessarTelaMovimentacoes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/icons8-pagamento-35.png"))); // NOI18N
+        jButtonAcessarTelaMovimentacoes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/botãoMovimentações.png"))); // NOI18N
         jButtonAcessarTelaMovimentacoes.setText("MOVIMENTAÇÕES");
         jButtonAcessarTelaMovimentacoes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -105,7 +105,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jButtonMudarParaTelaDespesa.setBackground(new java.awt.Color(0, 51, 153));
         jButtonMudarParaTelaDespesa.setFont(new java.awt.Font("Arial", 3, 12)); // NOI18N
         jButtonMudarParaTelaDespesa.setForeground(new java.awt.Color(255, 255, 255));
-        jButtonMudarParaTelaDespesa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/icons8-dinheiro-35.png"))); // NOI18N
+        jButtonMudarParaTelaDespesa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/botãoDespesas.png"))); // NOI18N
         jButtonMudarParaTelaDespesa.setText("DESPESAS");
         jButtonMudarParaTelaDespesa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

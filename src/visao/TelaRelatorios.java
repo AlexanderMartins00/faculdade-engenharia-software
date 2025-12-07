@@ -179,7 +179,7 @@ public class TelaRelatorios extends javax.swing.JFrame {
         jButtonVoltarTelaInicial.setBackground(new java.awt.Color(255, 255, 255));
         jButtonVoltarTelaInicial.setFont(new java.awt.Font("Arial", 3, 12)); // NOI18N
         jButtonVoltarTelaInicial.setForeground(new java.awt.Color(0, 0, 0));
-        jButtonVoltarTelaInicial.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/back.png"))); // NOI18N
+        jButtonVoltarTelaInicial.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/botãoVoltar.png"))); // NOI18N
         jButtonVoltarTelaInicial.setText("Voltar  para tela inicial");
         jButtonVoltarTelaInicial.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
