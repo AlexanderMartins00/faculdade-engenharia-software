@@ -11,8 +11,6 @@ import modelos.classes.Movimentacao;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import modelos.classes.Despesas;
@@ -544,6 +542,7 @@ public class TelaMovimentacao extends javax.swing.JFrame {
             jTextFieldValorDespesa.setText(null);
             jFormattedTextField1.setText(null);
             mostrarDadosNaTela();
+            preencherData();
 
         } catch (Exception erro) {
             JOptionPane.showMessageDialog(rootPane, erro.getMessage());
@@ -567,6 +566,7 @@ public class TelaMovimentacao extends javax.swing.JFrame {
             jTextFieldValorDespesa.setText(null);
             jFormattedTextField1.setText(null);
             mostrarDadosNaTela();
+            preencherData();
 
         } catch (Exception erro) {
             JOptionPane.showMessageDialog(rootPane, erro.getMessage());
@@ -719,6 +719,7 @@ public class TelaMovimentacao extends javax.swing.JFrame {
             jTextFieldIdMovimentacao.setText(null);
             jTextFieldValorDespesa.setText(null);
             jFormattedTextField1.setText(null);
+            preencherData();
 
         } catch (Exception erro) {
         }

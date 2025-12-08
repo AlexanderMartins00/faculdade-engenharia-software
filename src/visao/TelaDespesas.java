@@ -7,8 +7,6 @@ package visao;
 import controle.ControleDespesas;
 import java.util.ArrayList;
 import modelos.classes.Despesas;
-import persistencia.DespesasDAO;
-
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -202,11 +200,11 @@ public class TelaDespesas extends javax.swing.JFrame {
 
         jTextFieldIDdaDespesa.setBackground(new java.awt.Color(153, 153, 153));
         jTextFieldIDdaDespesa.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        jTextFieldIDdaDespesa.setForeground(new java.awt.Color(255, 255, 255));
+        jTextFieldIDdaDespesa.setForeground(new java.awt.Color(0, 0, 0));
 
         jTextFieldDescricaodaDespesa.setBackground(new java.awt.Color(153, 153, 153));
         jTextFieldDescricaodaDespesa.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        jTextFieldDescricaodaDespesa.setForeground(new java.awt.Color(255, 255, 255));
+        jTextFieldDescricaodaDespesa.setForeground(new java.awt.Color(0, 0, 0));
 
         jLabel1.setFont(new java.awt.Font("Arial Black", 3, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));

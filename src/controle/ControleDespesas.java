@@ -21,7 +21,7 @@ public class ControleDespesas implements IDespesasCRUD {
         if (despesas.getIdTipoDeDespesa() <= 0) {
             throw new Exception("O ID da despesa deve ser maior que zero.");
         }
-        if (despesas.getDescricao() == null || despesas.getDescricao().equals("")) {
+        if (despesas.getDescricao() == null || despesas.getDescricao().trim().equals("")) {
             throw new Exception("A descrição da despesa não pode estar vazia.");
         }       
        

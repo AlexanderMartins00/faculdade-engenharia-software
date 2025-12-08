@@ -33,7 +33,7 @@ public class ControleMovimentacao implements IMovimentacaoCRUD{
                 throw new Exception("Despesa inválida.");
             }
 
-            if (movimentacao.getDescricaoDespesa().isEmpty()) {
+            if (movimentacao.getDescricaoDespesa().trim().isEmpty()) {
                 throw new Exception("Descrição vazia.");
             }
 

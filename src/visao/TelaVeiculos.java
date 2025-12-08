@@ -6,12 +6,9 @@ package visao;
 
 import controle.ControleVeiculo;
 import java.util.ArrayList;
-import javax.swing.JComboBox;
-import modelos.classes.Despesas;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import modelos.classes.Veiculos;
-import persistencia.VeiculosDAO;
 import modelos.enumeracoes.StatusVeiculo;
 
 /**
@@ -199,9 +196,11 @@ public class TelaVeiculos extends javax.swing.JFrame {
 
         jTextFieldMarca.setBackground(new java.awt.Color(153, 153, 153));
         jTextFieldMarca.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jTextFieldMarca.setForeground(new java.awt.Color(0, 0, 0));
 
         jTextFieldPlaca.setBackground(new java.awt.Color(153, 153, 153));
         jTextFieldPlaca.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jTextFieldPlaca.setForeground(new java.awt.Color(0, 0, 0));
 
         jTextFieldIdVeiculo.setBackground(new java.awt.Color(153, 153, 153));
         jTextFieldIdVeiculo.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
@@ -218,6 +217,7 @@ public class TelaVeiculos extends javax.swing.JFrame {
 
         jTextFieldModelo.setBackground(new java.awt.Color(153, 153, 153));
         jTextFieldModelo.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jTextFieldModelo.setForeground(new java.awt.Color(0, 0, 0));
 
         jLabel7.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(0, 0, 0));
@@ -225,6 +225,7 @@ public class TelaVeiculos extends javax.swing.JFrame {
 
         jTextFieldAnoDeFabricacao.setBackground(new java.awt.Color(153, 153, 153));
         jTextFieldAnoDeFabricacao.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jTextFieldAnoDeFabricacao.setForeground(new java.awt.Color(0, 0, 0));
 
         jLabel9.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(0, 0, 0));

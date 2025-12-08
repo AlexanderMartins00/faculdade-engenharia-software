@@ -23,17 +23,17 @@ public class ControleVeiculo implements IVeiculoCRUD{
             if (obj != null) {
                 throw new Exception("Identificador já existe.");
             }
-             if (veiculo.getPlaca().isEmpty()) {
+             if (veiculo.getPlaca().trim().isEmpty()) {
                 throw new Exception("Placa vazia.");
             }
-             if(veiculo.getPlaca().length()  != 7){
+             if(veiculo.getPlaca().trim().length()  != 7){
                  throw new Exception("A quantidade de caracteres da placa deve ser igual a 7");
                  
              }
-              if (veiculo.getMarca().isEmpty()) {
+              if (veiculo.getMarca().trim().isEmpty()) {
                 throw new Exception("Marca vazia.");
             }
-              if (veiculo.getModelo().isEmpty()) {
+              if (veiculo.getModelo().trim().isEmpty()) {
                 throw new Exception("Modelo vazio.");
             }
             if (veiculo.getAnoDeFabricacao() <= 0) {
