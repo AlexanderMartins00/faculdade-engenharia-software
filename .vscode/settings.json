@@ -1,0 +1,6 @@
+{
+    "java.project.referencedLibraries": [
+        "lib/**/*.jar",
+        "segundo_semestre/1nd_pi/itextpdf-5.5.13.3.jar"
+    ]
+}
