@@ -10,6 +10,7 @@ public class principal {
         int opcao;
 
         do {
+            System.out.println("\n");
             System.out.println("1 - Cadastrar chegada do paciente");
             System.out.println("2 - Piorar quadro do paciente");
             System.out.println("3 - Atender paciente");
@@ -21,7 +22,7 @@ public class principal {
             switch (opcao) {
                 case 1:
                     System.out.print("Nome do paciente: ");
-                    String nome = sc.nextLine().trim();
+                    String nome = sc.nextLine().trim().toLowerCase();
 
                     if (nome.isEmpty()) {
                         System.out.println("O nome não pode ser vazio.");
@@ -42,7 +43,7 @@ public class principal {
 
                 case 2:
                     System.out.print("Nome do paciente: ");
-                    String nomePior = sc.nextLine().trim();
+                    String nomePior = sc.nextLine().trim().toLowerCase();
 
                     System.out.print("Nova gravidade (1 a 10): ");
                     int novaGravidade = lerInteiro(sc);
@@ -66,7 +67,6 @@ public class principal {
                     break;
 
                 case 4:
-                    System.out.println("Encerrando o plantão...");
                     fila.gerarRelatorioTurno();
                     break;
 
@@ -78,12 +78,11 @@ public class principal {
         sc.close();
     }
 
-    // Lê um inteiro sem quebrar o programa se o usuário digitar letras
     private static int lerInteiro(Scanner sc) {
         try {
             return Integer.parseInt(sc.nextLine().trim());
         } catch (NumberFormatException e) {
-            return -1; // valor inválido: cai no tratamento de erro de cada opção
+            return -1;
         }
     }
 }

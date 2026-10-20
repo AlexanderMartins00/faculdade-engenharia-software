@@ -50,7 +50,7 @@ public class Pacientes {
 
     @Override 
     public String toString(){
-        return "pacientes{nome = " + nome + ", gravidade = " + gravidade 
-            + ", ordemChegada = " + ordemChegada + "}";
+        return "paciente - nome = " + nome + ", gravidade = " + gravidade 
+            + ", ordemChegada = " + ordemChegada;
     }
 }

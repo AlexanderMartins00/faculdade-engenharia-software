@@ -3,17 +3,16 @@ package trabalho_heap;
 import java.util.Arrays;
 
 public class heap {
-    private Pacientes[] A;  // Vetor que guarda o heap (índices 1 a tam)
-    private int tam;       // Quantidade atual de pacientes
-    private int max;       // Capacidade máxima
+    private Pacientes[] vetorHeap;  
+    private int tam;       
+    private int max;       
 
     public heap(int capacidade) {
         this.max = capacidade;
         this.tam = 0;
-        this.A = new Pacientes[capacidade + 1]; // índice 0 não é usado
+        this.vetorHeap = new Pacientes[capacidade + 1]; 
     }
 
-    // --- Navegação nos índices ---
     private int pai(int i) {
         return i / 2;
     }
@@ -26,59 +25,52 @@ public class heap {
         return (2 * i) + 1;
     }
 
-    // Troca dentro do vetor do heap
     private void trocar(int i, int j) {
-        trocar(A, i, j);
+        trocar(vetorHeap, i, j);
     }
 
-    // Troca em qualquer vetor (usado também pelo Heapsort)
     private void trocar(Pacientes[] v, int i, int j) {
         Pacientes temp = v[i];
         v[i] = v[j];
         v[j] = temp;
     }
 
-    // --- Subida: reaproveitada no insere e no piorarQuadro ---
     private void sobe(int i) {
-        while (i > 1 && A[i].maiorPrioridade(A[pai(i)])) {
+        while (i > 1 && vetorHeap[i].maiorPrioridade(vetorHeap[pai(i)])) {
             trocar(i, pai(i));
             i = pai(i);
         }
     }
 
-    // --- Requisito 1: Inserção com estabilidade ---
-    public void insere(Pacientes p) {
+    public void insere(Pacientes pacientes) {
         if (tam == max) {
             throw new IllegalStateException("Erro: heap cheio");
         }
         tam++;
-        A[tam] = p;   // entra no fim da árvore
-        sobe(tam);    // sobe enquanto tiver maior prioridade que o pai
+        vetorHeap[tam] = pacientes;   
+        sobe(tam);    
     }
 
-    // --- Requisito 2: Atendimento médico ---
     public Pacientes atenderProximo() {
         if (tam == 0) {
             throw new IllegalStateException("Não há pacientes aguardando.");
         }
 
-        Pacientes proximo = A[1];  // paciente de maior prioridade
-        A[1] = A[tam];            // último assume a raiz temporariamente
-        A[tam] = null;            // limpa a posição antiga
+        Pacientes proximo = vetorHeap[1];  
+        vetorHeap[1] = vetorHeap[tam];            
+        vetorHeap[tam] = null;           
         tam--;
 
         if (tam > 0) {
-            corrigeHeap(1);       // rebaixa o nó até o lugar certo
+            corrigeHeap(1);       
         }
         return proximo;
     }
 
-    // --- CorrigeHeap (descida) ---
     private void corrigeHeap(int i) {
-        descer(A, i, tam);
+        descer(vetorHeap, i, tam);
     }
 
-    // Descida genérica: serve para o heap e para o Heapsort (recebe vetor e tamanho)
     private void descer(Pacientes[] v, int i, int n) {
         int esq = esq(i);
         int dir = dir(i);
@@ -97,12 +89,11 @@ public class heap {
         }
     }
 
-    // --- Requisito 3: Agravamento de quadro ---
     public void piorarQuadro(String nome, int novaGravidade) {
-        // 1. Localiza o paciente pelo nome
+        
         int pos = -1;
         for (int i = 1; i <= tam; i++) {
-            if (A[i].getNome().equals(nome)) {
+            if (vetorHeap[i].getNome().equals(nome)) {
                 pos = i;
                 break;
             }
@@ -113,21 +104,17 @@ public class heap {
             return;
         }
 
-        // 2. Valida se a nova gravidade é estritamente maior
-        if (novaGravidade <= A[pos].getGravidade()) {
+        if (novaGravidade <= vetorHeap[pos].getGravidade()) {
             System.out.println("A nova gravidade (" + novaGravidade
-                    + ") deve ser maior que a atual (" + A[pos].getGravidade() + ").");
+                    + ") deve ser maior que a atual (" + vetorHeap[pos].getGravidade() + ").");
             return;
         }
 
-        // 3. Atualiza a gravidade (ordemChegada não é alterada)
-        A[pos].setGravidade(novaGravidade);
+        vetorHeap[pos].setGravidade(novaGravidade);
 
-        // 4. Sobe a partir da posição atual
         sobe(pos);
     }
 
-    // --- Requisito 4: Relatório com Heapsort ---
     public void gerarRelatorioTurno() {
         System.out.println("\n===== RELATÓRIO DE FECHAMENTO DE TURNO =====");
 
@@ -136,28 +123,23 @@ public class heap {
             return;
         }
 
-        // Trabalha numa cópia para não destruir a fila original
-        Pacientes[] v = Arrays.copyOf(A, tam + 1);
+        Pacientes[] copiaHeap = Arrays.copyOf(vetorHeap, tam + 1);
         int n = tam;
 
-        // Fase 1: construir o heap máximo
         for (int i = n / 2; i >= 1; i--) {
-            descer(v, i, n);
+            descer(copiaHeap, i, n);
         }
 
-        // Fase 2: leva a raiz (maior prioridade) para o fim e reduz o heap
         for (int fim = n; fim >= 2; fim--) {
-            trocar(v, 1, fim);
-            descer(v, 1, fim - 1);
+            trocar(copiaHeap, 1, fim);
+            descer(copiaHeap, 1, fim - 1);
         }
 
-        // Agora v está em ordem CRESCENTE de prioridade.
-        // Imprime de trás para frente: mais graves primeiro.
         int lugar = 1;
         for (int i = n; i >= 1; i--) {
-            System.out.println(lugar + "º Lugar: " + v[i].getNome()
-                    + " (Gravidade " + v[i].getGravidade()
-                    + ", Chegada #" + v[i].getOrdemChegada() + ")");
+            System.out.println(lugar + "º Lugar: " + copiaHeap[i].getNome()
+                    + " (Gravidade " + copiaHeap[i].getGravidade()
+                    + ", Chegada #" + copiaHeap[i].getOrdemChegada() + ")");
             lugar++;
         }
     }
@@ -167,9 +149,9 @@ public class heap {
     }
 
     public void imprimirVetor() {
-        System.out.print("[");
+        System.out.print("\n[");
         for (int i = 1; i <= tam; i++) {
-            System.out.print(A[i].getNome() + "(" + A[i].getGravidade() + ")"
+            System.out.print(vetorHeap[i].getNome() + "(" + vetorHeap[i].getGravidade() + ")"
                     + (i < tam ? ", " : ""));
         }
         System.out.println("]");
