@@ -1,4 +1,4 @@
-package aula10_27_10_26;
+package aula10_27_10_26.Grafo03;
 
 import java.util.Arrays;
 import java.util.Scanner;
